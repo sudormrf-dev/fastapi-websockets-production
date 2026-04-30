@@ -48,6 +48,8 @@ ignore = ["ANN", "D", "ERA", "T20", "COM812", "ISC001", "E501"]
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "PLR2004", "SLF001", "S105", "S106", "S108"]
 "patterns/*" = ["PLR2004", "UP042", "UP047", "N802", "N818", "TC002", "TRY300"]
+"benchmarks/*" = ["S101", "S311", "PERF401", "TC003", "UP042", "RUF001", "RUF002", "RUF003", "RUF046", "RUF059"]
+"examples/*" = ["S101", "S311", "PERF401", "F541", "S608", "TC003", "SIM108", "SIM102", "TRY003", "TRY300", "TRY400", "EM101", "RUF012", "UP031", "UP042", "RUF001", "RUF002", "RUF003", "RUF046", "RUF059"]
 
 [tool.mypy]
 python_version = "3.12"

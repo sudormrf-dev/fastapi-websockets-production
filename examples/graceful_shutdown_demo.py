@@ -101,7 +101,7 @@ async def broken_ws_handler(ws: FakeWebSocket) -> None:
             try:
                 msg = await ws.receive_text()
                 await ws.send_text(f"echo: {msg}")
-            except Exception:  # noqa: BLE001  # <-- swallows CancelledError in 3.7
+            except Exception:  # <-- swallows CancelledError in 3.7
                 logger.error("[BROKEN] Exception swallowed — loop continues!")
                 # BUG: we continue the loop instead of re-raising CancelledError
     finally:

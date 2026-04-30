@@ -267,10 +267,10 @@ def print_table(results: list[BenchmarkResult]) -> None:
 
 async def main() -> None:
     """Run all benchmark combinations and print the results table."""
-    print(f"\nWebSocket ConnectionManager Throughput Benchmark")
+    print("\nWebSocket ConnectionManager Throughput Benchmark")
     print(f"  Broadcast rounds per run : {BROADCAST_ROUNDS}")
     print(f"  Client counts            : {CLIENT_COUNTS}")
-    print(f"  Modes                    : with_backpressure, without_backpressure")
+    print("  Modes                    : with_backpressure, without_backpressure")
 
     results: list[BenchmarkResult] = []
 
