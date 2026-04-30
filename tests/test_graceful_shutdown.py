@@ -109,8 +109,8 @@ class TestMakeConnectionId:
 
 
 class TestCloseCode:
-    def test_going_away_value(self):
-        assert CloseCode.GOING_AWAY == 1001
+    def test_going_away_value(self) -> None:
+        assert CloseCode.GOING_AWAY.value == 1001
 
-    def test_normal_value(self):
-        assert CloseCode.NORMAL == 1000
+    def test_normal_value(self) -> None:
+        assert CloseCode.NORMAL.value == 1000

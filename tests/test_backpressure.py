@@ -53,7 +53,7 @@ class TestSendQueueDropOldest:
         await q.enqueue({"n": 2})
         received = []
 
-        async def send_fn(msg: dict) -> None:
+        async def send_fn(msg: dict[str, object]) -> None:
             received.append(msg)
 
         sent = await q.drain(send_fn, batch_size=10)
@@ -66,7 +66,7 @@ class TestSendQueueDropOldest:
             await q.enqueue({"n": i})
         received = []
 
-        async def send_fn(msg: dict) -> None:
+        async def send_fn(msg: dict[str, object]) -> None:
             received.append(msg)
 
         sent = await q.drain(send_fn, batch_size=2)
@@ -76,7 +76,7 @@ class TestSendQueueDropOldest:
         q = SendQueue("c1", max_size=10, strategy=BackpressureStrategy.DROP_OLDEST)
         await q.enqueue({"n": 1})
 
-        async def send_fn(msg: dict) -> None:
+        async def send_fn(msg: dict[str, object]) -> None:
             pass
 
         await q.drain(send_fn)
@@ -86,7 +86,7 @@ class TestSendQueueDropOldest:
         q = SendQueue("c1", max_size=10, strategy=BackpressureStrategy.DROP_OLDEST)
         await q.enqueue({"n": 1})
 
-        async def failing_send(msg: dict) -> None:
+        async def failing_send(msg: dict[str, object]) -> None:
             _ = msg
             err = "send failed"
             raise RuntimeError(err)
